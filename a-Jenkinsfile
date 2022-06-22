@@ -1,3 +1,5 @@
+// Pre defined variable example
+
 pipeline {
     agent any
     stages {

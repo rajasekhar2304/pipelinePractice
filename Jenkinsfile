@@ -1,3 +1,5 @@
+// Script to say Hello world
+
 pipeline {
     agent any
     stages {

@@ -1,3 +1,4 @@
+// global level variable declaration example
 pipeline {
     agent any
     environment {
