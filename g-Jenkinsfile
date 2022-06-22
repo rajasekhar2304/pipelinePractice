@@ -1,0 +1,21 @@
+// I fyou defined defferent values for same variable, we can call above the stage level variable by using ${env.MYHOME}
+
+pipeline {
+    agent any
+    environment {
+        MYHOME='HYD'        
+    }
+    stages {
+        stage("User") {
+            environment{
+                MYHOME="VIZAG"
+            }
+            steps {
+                script {
+                    MYHOME="SKLM"
+                    echo "My native place is $MYHOME but I am living in ${env.MYHOME}"
+                }
+            }
+        }
+    }
+}
