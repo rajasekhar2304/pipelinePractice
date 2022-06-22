@@ -1,0 +1,19 @@
+// priority order of user defined variables is ( script level > stage level > global level)
+// declaring MYHOME variable in both global and stage level and observe the priority
+
+pipeline {
+    agent any
+    environment {
+        MYHOME='Hyderabad'
+    }
+    stages {
+        stage("User") {
+            environment {
+                MYHOME='Srikakulam'
+            }
+            steps {
+                echo "My native place is $MYHOME"
+            }
+        }
+    }
+}
