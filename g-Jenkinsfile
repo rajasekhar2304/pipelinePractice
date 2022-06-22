@@ -8,11 +8,11 @@ pipeline {
     stages {
         stage("User") {
             environment{
-                MYHOME="VIZAG"
+                MYHOME='VIZAG'
             }
             steps {
                 script {
-                    MYHOME="SKLM"
+                    MYHOME='SKLM'
                     echo "My native place is $MYHOME but I am living in ${env.MYHOME}"
                 }
             }
