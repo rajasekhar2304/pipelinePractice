@@ -1,0 +1,15 @@
+// script level user defined variable example with another pattern
+
+pipeline {
+    agent any
+    stages {
+        stage("User") {
+            steps {
+                script {
+                    MYHOME="Hyderabad"
+                    echo "$MYHOME is the safest place in India"
+                }
+            }
+        }
+    }
+}
