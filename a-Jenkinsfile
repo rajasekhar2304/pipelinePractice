@@ -1,0 +1,10 @@
+pipeline {
+    agent any
+    stages("preDefinedVariables") {
+        stage {
+            steps {
+                echo "Pre Defined Variables $WORKSPACE $BUILD_NUMBER"
+            }
+        }
+    }
+}
