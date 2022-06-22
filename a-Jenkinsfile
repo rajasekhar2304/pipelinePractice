@@ -2,6 +2,9 @@
 
 pipeline {
     agent any
+    environment {
+        $BUILD_NUMBER='Mumbai'
+    }
     stages {
         stage ("preDefinedVariables") {
             steps {
