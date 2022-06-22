@@ -1,0 +1,17 @@
+// script level user defined variable example
+
+pipeline {
+    agent any
+    stages {
+        stage("User") {
+            steps {
+                script {
+                    MYHOME="Hyderabad"
+                }
+                echo "Script level user defined variable declaration"
+                echo "-------------------------"
+                echo "I am from $MYHOME"
+            }
+        }
+    }
+}
