@@ -1,0 +1,19 @@
+// Concatenating two variables
+
+pipeline {
+    agent any
+    environment {
+        name1='Raja'
+        name2='Sekhar'
+    }
+    stages {
+        stage("Concatenate") {
+            steps{
+                script {
+                    name = name1 + name2
+                }
+                echo "My name is $name"
+            }
+        }
+    }
+}
