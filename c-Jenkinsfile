@@ -1,0 +1,15 @@
+// stage level user defined variable example
+
+pipeline {
+    agent any
+    stages {
+        stage("User") {
+            environment {
+                MYHOME="Hyderabad"
+            }
+            steps {
+                echo "I am staying in $MYHOME"
+            }
+        }
+    }
+}
