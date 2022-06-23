@@ -1,8 +1,8 @@
 pipeline {
     agent any
     parameters {
-        string(name:'DEPLOY_ENV', defaultValue:'staging', description:'')
-        text(name:'DEPLOY_TEXT', defaultValue: 'One\nTwo\nThree', description:'')
+        string(name:'BRANCH_NAME', defaultValue:'staging', description:'')
+        text(name:'BRANCH_NAME', defaultValue: 'One\nTwo\nThree', description:'')
         booleanParam(name:'TOOGLE', defaultValue:true, description:'Toogle this value')
         choice(name:'CHOICE', choices:['One', 'Two', 'Three'], description:'Pick Something')
         password(name:'PASSWORD', defaultValue:'SECRET', description:'A secret password')
@@ -11,12 +11,12 @@ pipeline {
     stages {
         stage("String") {
             steps {
-                echo "string $DEPLOY_ENV"
+                echo "string $BRANCH_NAME"
             }            
         }
         stage("Text") {
             steps {
-                echo "Text $DEPLOY_TEXT"
+                echo "Text $BRANCH_NAME"
             }
         }
         stage("BooleanParam") {
