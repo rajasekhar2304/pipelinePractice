@@ -1,0 +1,17 @@
+//Retry stage based
+
+pipeline {
+    agent any
+    stages {
+        stage("Deploy") {
+            options {
+                retry(3)
+                timeout(time:5, unit:'SECONDS')
+            }
+            steps {
+                sh "echo Hello"
+                sleep(10)
+            }
+        }
+    }
+}
