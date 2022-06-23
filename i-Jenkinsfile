@@ -1,0 +1,54 @@
+pipeline {
+    agent any
+    parameters {
+        string(name:'DEPLOY_ENV', defaultValue:'staging', description:'')
+        text(name:'DEPLOY_TEXT', defaultValue: 'One\nTwo\nThree', description:'')
+        booleanParam(name:'TOOGLE', defaultValue:true, description:'Toogle this value')
+        choice(name:'CHOICE', choices:['One', 'Two', 'Three'], description:'Pick Something')
+        password(name:'PASSWORD', defaultValue:'SECRET', description:'A secret password')
+        file(name:'FILE', description:'Some file to upload')        
+    }
+    stages {
+        stage("String") {
+            steps {
+                echo "string $DEPLOY_ENV"
+            }            
+        }
+        stage("Text") {
+            steps {
+                echo "Text $DEPLOY_TEXT"
+            }
+        }
+        stage("BooleanParam") {
+            steps {
+                script {
+                    if(TOOGLE) {
+                        echo "Now execute boolean is true"
+                    }
+                    else {
+                        echo "Don't executed because boolean is false"
+                    }
+                }
+            }
+        }
+        stage("Choice") {
+            steps {
+                script {
+                    if(DEPLOY_ENV=='staging') {
+                        echo "choice $CHOICE"
+                    }
+                }
+            }
+        }
+        stage("File") {
+            steps {
+                echo "file $FILE"
+            }
+        }
+        stage("Password") {
+            steps {
+                echo "Password $PASSWORD"
+            }
+        }
+    }
+}
